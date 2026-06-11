@@ -1,0 +1,58 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
+  "name": "jumuia-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Kenya community finance \u2014 SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools.",
+  "license": "MIT",
+  "author": {
+    "name": "Gabriel Mahia",
+    "email": "contact@aikungfu.dev"
+  },
+  "tools": [
+    {
+      "name": "sacco_finder",
+      "description": "Find accredited SACCOs",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "chama_formation_guide",
+      "description": "Guide to forming a chama",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "cooperative_benefits",
+      "description": "SACCO/cooperative benefits",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "sacco_loan_guide",
+      "description": "SACCO loan types and rates",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "cooperative_rights_query",
+      "description": "Cooperative member rights",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    }
+  ]
+}
