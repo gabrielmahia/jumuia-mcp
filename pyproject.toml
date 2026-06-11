@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jumuia-mcp"
+version = "0.1.0"
+description = "MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["fastmcp>=0.9", "pydantic>=2.0"]
+
+[project.scripts]
+jumuia-mcp = "jumuia_mcp.server:mcp.run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
