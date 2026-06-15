@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Optional
 from fastmcp import FastMCP
-mcp = FastMCP(name="jumuia-mcp", description="Kenya SACCO, chama, and cooperative finance tools. DEMO data only.")
+mcp = FastMCP(name="jumuia-mcp", instructions="Kenya SACCO, chama, and cooperative finance tools. DEMO data only.")
 
 SACCO_TYPES = {
     "deposit_taking": "DT-SACCO: Regulated by SASRA. Offers savings + loans + mobile banking. Minimum capital KES 25M.",
