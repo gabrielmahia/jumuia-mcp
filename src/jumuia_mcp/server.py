@@ -12,6 +12,7 @@ SACCO_TYPES = {
 
 @mcp.tool(name="sacco_finder", description="Find accredited SACCOs in Kenya by county or sector. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def sacco_finder(county: Annotated[Optional[str], "Kenyan county to search for SACCOs in, e.g. 'Nairobi', 'Mombasa'."] = None, sector: Annotated[Optional[str], "SACCO sector, e.g. 'transport', 'teachers', 'farmers'."] = None) -> dict:
+    """Find SACCOs (Savings and Credit Cooperatives) in Kenya by sector, county, or type."""
     SAMPLES = [
         {"name": "Harambee SACCO", "type": "DT-SACCO", "sector": "civil_service", "aum_kes": "47B", "sasra": True},
         {"name": "Mwalimu National SACCO", "type": "DT-SACCO", "sector": "teachers", "aum_kes": "60B", "sasra": True},
@@ -26,6 +27,7 @@ def sacco_finder(county: Annotated[Optional[str], "Kenyan county to search for S
 
 @mcp.tool(name="chama_formation_guide", description="Guide to forming a chama/investment group in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = "savings") -> dict:
+    """Return step-by-step guide to forming a chama (investment group) in Kenya."""
     return {"source": "DEMO — Ministry of Cooperatives for official guidance", "members": members, "purpose": purpose,
             "steps": ["1. Recruit members (3–50 typical). Define shared goal.",
                       "2. Draft constitution: objectives, contributions, meetings, dispute resolution",
@@ -39,6 +41,7 @@ def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = 
 
 @mcp.tool(name="cooperative_benefits", description="Benefits and obligations of Kenya cooperative membership. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
+    """Return benefits, structures, and types of cooperatives available in Kenya."""
     BENEFITS = {
         "sacco": ["Higher savings rates (8–14%) vs bank (2–4%)", "Loans at 1–1.5% monthly vs banks 15–20% p.a.",
                   "Benevolent fund (death/disability)", "Dividends on shares", "Mobile banking (DT-SACCOs)"],
