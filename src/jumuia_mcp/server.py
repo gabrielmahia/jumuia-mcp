@@ -1,6 +1,6 @@
 """JumuiaMCP — Kenya Community Finance Tools (5 tools). All data DEMO."""
 from __future__ import annotations
-from typing import Optional
+from typing import Annotated, Optional
 from fastmcp import FastMCP
 mcp = FastMCP(name="jumuia-mcp", instructions="Kenya SACCO, chama, and cooperative finance tools. DEMO data only.")
 
@@ -10,8 +10,8 @@ SACCO_TYPES = {
     "chama": "Investment group/merry-go-round. Informal. No regulatory body. Members bind by constitution.",
 }
 
-@mcp.tool(name="sacco_finder", description="Find accredited SACCOs in Kenya by county or sector. DEMO.")
-def sacco_finder(county: Optional[str] = None, sector: Optional[str] = None) -> dict:
+@mcp.tool(name="sacco_finder", description="Find accredited SACCOs in Kenya by county or sector. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
+def sacco_finder(county: Annotated[Optional[str], "Kenyan county to search for SACCOs in, e.g. 'Nairobi', 'Mombasa'."] = None, sector: Annotated[Optional[str], "SACCO sector, e.g. 'transport', 'teachers', 'farmers'."] = None) -> dict:
     SAMPLES = [
         {"name": "Harambee SACCO", "type": "DT-SACCO", "sector": "civil_service", "aum_kes": "47B", "sasra": True},
         {"name": "Mwalimu National SACCO", "type": "DT-SACCO", "sector": "teachers", "aum_kes": "60B", "sasra": True},
@@ -24,7 +24,7 @@ def sacco_finder(county: Optional[str] = None, sector: Optional[str] = None) -> 
             "sample_saccos": SAMPLES, "full_registry": "sasra.or.ke — SACCO Societies Regulatory Authority",
             "tip": "Choose SASRA-regulated DT-SACCOs for safety. Check audited accounts before joining."}
 
-@mcp.tool(name="chama_formation_guide", description="Guide to forming a chama/investment group in Kenya. DEMO.")
+@mcp.tool(name="chama_formation_guide", description="Guide to forming a chama/investment group in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = "savings") -> dict:
     return {"source": "DEMO — Ministry of Cooperatives for official guidance", "members": members, "purpose": purpose,
             "steps": ["1. Recruit members (3–50 typical). Define shared goal.",
@@ -37,7 +37,7 @@ def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = 
                                   "limited_company": "Investment company, KES 10,000+ to form"},
             "merry_go_round": f"For {members} members at KES 1,000/meeting: each receives KES {members*1000:,} per cycle"}
 
-@mcp.tool(name="cooperative_benefits", description="Benefits and obligations of Kenya cooperative membership. DEMO.")
+@mcp.tool(name="cooperative_benefits", description="Benefits and obligations of Kenya cooperative membership. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
     BENEFITS = {
         "sacco": ["Higher savings rates (8–14%) vs bank (2–4%)", "Loans at 1–1.5% monthly vs banks 15–20% p.a.",
@@ -56,8 +56,8 @@ def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
             "obligations": OBLIGATIONS.get(ctype, OBLIGATIONS["sacco"]),
             "sasra": "DT-SACCOs regulated by SASRA — sasra.or.ke"}
 
-@mcp.tool(name="sacco_loan_guide", description="SACCO loan types, eligibility, and process in Kenya. DEMO.")
-def sacco_loan_guide(loan_type: Optional[str] = "development", sacco_name: Optional[str] = None) -> dict:
+@mcp.tool(name="sacco_loan_guide", description="SACCO loan types, eligibility, and process in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
+def sacco_loan_guide(loan_type: Optional[str] = "development", sacco_name: Annotated[Optional[str], "Optional filter for sacco name. Pass None to return all results."] = None) -> dict:
     LOANS = {
         "development": {"max_multiple": "3× shares/deposits", "rate": "1–1.25%/month reducing balance",
                         "max_term": "48 months", "purpose": "Any: housing, education, business, vehicle"},
@@ -73,7 +73,7 @@ def sacco_loan_guide(loan_type: Optional[str] = "development", sacco_name: Optio
     return {"source": "DEMO — rates vary by SACCO", "loan_type": loan_type, "sacco": sacco_name, **data,
             "tip": "Compare: SACCO loans are significantly cheaper than bank personal loans."}
 
-@mcp.tool(name="cooperative_rights_query", description="Rights and protections for Kenya cooperative members. DEMO.")
+@mcp.tool(name="cooperative_rights_query", description="Rights and protections for Kenya cooperative members. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def cooperative_rights_query(topic: str) -> dict:
     RIGHTS = {
         "audit": "Members have right to audited accounts annually. AGM must present accounts.",
