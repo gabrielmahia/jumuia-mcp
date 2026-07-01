@@ -3,6 +3,14 @@
 [![jumuia-mcp Glama score](https://glama.ai/mcp/servers/gabrielmahia/jumuia-mcp/badges/score.svg)](https://glama.ai/mcp/servers/gabrielmahia/jumuia-mcp)
 [![smithery badge](https://smithery.ai/badge/@gabrielmahia/jumuia-mcp)](https://smithery.ai/server/@gabrielmahia/jumuia-mcp)
 
+
+---
+**Compatible with `claude-sonnet-5`** (released 2026-06-30) — Anthropic's most agentic
+Sonnet yet. Runs multi-step tool chains end-to-end without stopping short.
+Install: `pip install jumuia-mcp` · Use with any MCP client.
+
+---
+
 MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools.
 
 ## Part of the East Africa Coordination Stack
