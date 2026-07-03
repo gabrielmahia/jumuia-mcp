@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jumuia-mcp"
-version = "0.1.2"
+version = "0.1.3"
 description = "MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools."
 readme = "README.md"
 license = { text = "MIT" }
