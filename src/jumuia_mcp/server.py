@@ -28,7 +28,6 @@ def sacco_finder(county: Optional[str] = Field(None, description="Kenyan county 
 
 @mcp.tool(name="chama_formation_guide", description="Guide to forming a chama/investment group in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = "savings") -> dict:
-   """Return step-by-step guide to forming a chama in Kenya."""
     """Return step-by-step guide to forming a chama (investment group) in Kenya."""
     return {"source": "DEMO — Ministry of Cooperatives for official guidance", "members": members, "purpose": purpose,
             "steps": ["1. Recruit members (3–50 typical). Define shared goal.",
@@ -43,7 +42,6 @@ def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = 
 
 @mcp.tool(name="cooperative_benefits", description="Benefits and obligations of Kenya cooperative membership. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
-   """Return benefits, structures, and obligations of Kenya cooperative membership."""
     """Return benefits, structures, and types of cooperatives available in Kenya."""
     BENEFITS = {
         "sacco": ["Higher savings rates (8–14%) vs bank (2–4%)", "Loans at 1–1.5% monthly vs banks 15–20% p.a.",
