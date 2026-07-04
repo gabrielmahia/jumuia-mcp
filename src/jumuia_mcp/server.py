@@ -91,3 +91,7 @@ def cooperative_rights_query(topic: str) -> dict:
     matched = {k: v for k, v in RIGHTS.items() if k in t or any(w in t for w in k.split("_"))}
     return {"source": "DEMO — Cooperative Societies Act, SASRA Act", "topic": topic,
             "rights": matched or RIGHTS, "sasra": "sasra.or.ke", "tribunal": "Cooperative Tribunal, Nairobi"}
+
+def main() -> None:
+    """Console entry point."""
+    mcp.run()
