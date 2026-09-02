@@ -1,18 +1,59 @@
 # jumuia-mcp
-<!-- mcp-name: io.github.gabrielmahia/jumuia-mcp -->
 
-[![jumuia-mcp Glama score](https://glama.ai/mcp/servers/gabrielmahia/jumuia-mcp/badges/score.svg)](https://glama.ai/mcp/servers/gabrielmahia/jumuia-mcp)
-[![smithery badge](https://smithery.ai/badge/@gabrielmahia/jumuia-mcp)](https://smithery.ai/server/@gabrielmahia/jumuia-mcp)
+## Why This Exists
 
+Kenya's SACCOs and chamas move an enormous share of household savings and credit, yet the rules for forming one, the difference between a registered society and a limited company, and what members are actually entitled to are scattered across the Cooperative Societies Act, SASRA circulars and word of mouth. This server puts that guidance where an AI agent can reach it, in one call.
 
----
-**Compatible with `claude-sonnet-5`** (released 2026-06-30) — Anthropic's most agentic
-Sonnet yet. Runs multi-step tool chains end-to-end without stopping short.
-Install: `pip install jumuia-mcp` · Use with any MCP client.
+## Install
 
----
+```bash
+pip install jumuia-mcp
+```
 
-MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools.
+## Tools (5)
+
+- **`sacco_finder`** — Find SACCOs (Savings and Credit Cooperatives) in Kenya by sector, county, or type.  
+  <sub>args: county, sector</sub>
+- **`chama_formation_guide`** — Return step-by-step guide to forming a chama (investment group) in Kenya.  
+  <sub>args: members, purpose</sub>
+- **`cooperative_benefits`** — Return benefits, structures, and types of cooperatives available in Kenya.  
+  <sub>args: coop_type</sub>
+- **`sacco_loan_guide`** —   
+  <sub>args: loan_type, sacco_name</sub>
+- **`cooperative_rights_query`** —   
+  <sub>args: topic</sub>
+
+## Example
+
+```python
+from jumuia_mcp.server import chama_formation_guide
+
+result = chama_formation_guide(members=12, purpose='savings')
+# steps, legal structures, registration fees, merry-go-round maths
+```
+
+## Claude Desktop Integration
+
+Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "jumuia-mcp": {
+      "command": "python",
+      "args": ["-m", "jumuia_mcp.server"]
+    }
+  }
+}
+```
+
+## Data & Disclaimers
+
+Guidance is drawn from the Cooperative Societies Act and SASRA regulations. Fees and capital thresholds change — confirm with the Ministry of Cooperatives or sasra.or.ke before relying on a figure.
+
+Every tool response carries a `source` field. Responses labelled `DEMO` are
+illustrative reference data, not a live feed — verify against the authority
+named in the response before acting on it.
 
 ## Part of the East Africa Coordination Stack
 
