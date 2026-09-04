@@ -18,9 +18,9 @@ pip install jumuia-mcp
   <sub>args: members, purpose</sub>
 - **`cooperative_benefits`** — Return benefits, structures, and types of cooperatives available in Kenya.  
   <sub>args: coop_type</sub>
-- **`sacco_loan_guide`** —   
+- **`sacco_loan_guide`** — Return indicative terms for a Kenyan SACCO loan product.  
   <sub>args: loan_type, sacco_name</sub>
-- **`cooperative_rights_query`** —   
+- **`cooperative_rights_query`** — Return the rights a Kenyan cooperative or SACCO member holds on a topic.  
   <sub>args: topic</sub>
 
 ## Example
