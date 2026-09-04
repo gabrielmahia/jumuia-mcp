@@ -62,6 +62,29 @@ def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
 
 @mcp.tool(name="sacco_loan_guide", description="SACCO loan types, eligibility, and process in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def sacco_loan_guide(loan_type: Optional[str] = "development", sacco_name: Optional[str] = Field(None, description="Optional filter for sacco name. Pass None to return all results.")) -> dict:
+    """Return indicative terms for a Kenyan SACCO loan product.
+
+    SACCO lending is priced off a member's shares and deposits rather than a
+    credit score, which is why it reaches people banks will not. The multiple
+    (typically 3x shares for a development loan) is the number that actually
+    determines what someone can borrow, and it is the figure least well
+    understood by first-time members.
+
+    Args:
+        loan_type: one of "development", "emergency", "school_fees",
+            "super_loan". Unrecognised values fall back to "development".
+        sacco_name: optional label echoed back in the response; this function
+            does not look up a specific SACCO's published rates.
+
+    Returns:
+        dict with max_multiple, rate, max_term and product-specific fields,
+        plus a `source` marker.
+
+    Note:
+        DEMO reference data. Rates and multiples vary materially between SACCOs
+        and are revised by each society's board — confirm with the SACCO
+        directly or via sasra.or.ke before relying on a figure.
+    """
     LOANS = {
         "development": {"max_multiple": "3× shares/deposits", "rate": "1–1.25%/month reducing balance",
                         "max_term": "48 months", "purpose": "Any: housing, education, business, vehicle"},
@@ -79,6 +102,28 @@ def sacco_loan_guide(loan_type: Optional[str] = "development", sacco_name: Optio
 
 @mcp.tool(name="cooperative_rights_query", description="Rights and protections for Kenya cooperative members. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def cooperative_rights_query(topic: str) -> dict:
+    """Return the rights a Kenyan cooperative or SACCO member holds on a topic.
+
+    Members frequently do not know that voting is one-member-one-vote regardless
+    of shareholding, or that the escalation path for a dispute runs through the
+    County Cooperative Director to the Cooperative Tribunal rather than the
+    ordinary courts. The deposit-protection distinction matters most: deposit-
+    taking SACCOs are covered by SASRA, while non-deposit-taking SACCOs and
+    chamas carry no formal protection at all.
+
+    Args:
+        topic: free text matched against known areas — audit, vote, exit,
+            dispute, information, protection. An unmatched topic returns the
+            full set rather than nothing, so a vague question still helps.
+
+    Returns:
+        dict with matched rights, plus SASRA and Cooperative Tribunal pointers.
+
+    Note:
+        DEMO reference data summarising the Cooperative Societies Act and SASRA
+        Act. Not legal advice — for a live dispute, consult an advocate or the
+        County Cooperative Director.
+    """
     RIGHTS = {
         "audit": "Members have right to audited accounts annually. AGM must present accounts.",
         "vote": "One member one vote regardless of share size.",
