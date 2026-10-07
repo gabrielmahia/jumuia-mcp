@@ -1,8 +1,8 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
   "name": "jumuia-mcp",
-  "version": "0.1.0",
-  "description": "MCP server for Kenya community finance \u2014 SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools.",
+  "version": "0.1.6",
+  "description": "MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights",
   "license": "MIT",
   "author": {
     "name": "Gabriel Mahia",
@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "sacco_finder",
-      "description": "Find accredited SACCOs",
+      "description": "Find accredited SACCOs in Kenya by county or sector. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "chama_formation_guide",
-      "description": "Guide to forming a chama",
+      "description": "Guide to forming a chama/investment group in Kenya. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "cooperative_benefits",
-      "description": "SACCO/cooperative benefits",
+      "description": "Benefits and obligations of Kenya cooperative membership. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "sacco_loan_guide",
-      "description": "SACCO loan types and rates",
+      "description": "SACCO loan types, eligibility, and process in Kenya. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -47,7 +47,7 @@
     },
     {
       "name": "cooperative_rights_query",
-      "description": "Cooperative member rights",
+      "description": "Rights and protections for Kenya cooperative members. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -68,5 +68,8 @@
     "mcp",
     "useful-rails",
     "ai-agents"
+  ],
+  "maintainers": [
+    "gabrielmahia"
   ]
 }
