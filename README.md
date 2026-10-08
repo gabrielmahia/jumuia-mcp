@@ -1,4 +1,5 @@
 # jumuia-mcp
+<!-- mcp-name: io.github.gabrielmahia/jumuia-mcp -->
 
 ## Why This Exists
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
   "name": "jumuia-mcp",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights",
   "license": "MIT",
   "author": {
