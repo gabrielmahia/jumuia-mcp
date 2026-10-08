@@ -1,8 +1,11 @@
 """JumuiaMCP — Kenya Community Finance Tools (5 tools). All data DEMO."""
 from __future__ import annotations
+
 from typing import Annotated, Optional
+
 from fastmcp import FastMCP
 from pydantic import Field
+
 mcp = FastMCP(name="jumuia-mcp", instructions="Kenya SACCO, chama, and cooperative finance tools. DEMO data only.")
 
 SACCO_TYPES = {
@@ -12,7 +15,7 @@ SACCO_TYPES = {
 }
 
 @mcp.tool(name="sacco_finder", description="Find accredited SACCOs in Kenya by county or sector. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
-def sacco_finder(county: Optional[str] = Field(None, description="Kenyan county to search for SACCOs in, e.g. 'Nairobi', 'Mombasa'."), sector: Optional[str] = Field(None, description="SACCO sector, e.g. 'transport', 'teachers', 'farmers'.")) -> dict:
+def sacco_finder(county: str | None = Field(None, description="Kenyan county to search for SACCOs in, e.g. 'Nairobi', 'Mombasa'."), sector: str | None = Field(None, description="SACCO sector, e.g. 'transport', 'teachers', 'farmers'.")) -> dict:
     """Find SACCOs (Savings and Credit Cooperatives) in Kenya by sector, county, or type."""
     SAMPLES = [
         {"name": "Harambee SACCO", "type": "DT-SACCO", "sector": "civil_service", "aum_kes": "47B", "sasra": True},
@@ -27,7 +30,7 @@ def sacco_finder(county: Optional[str] = Field(None, description="Kenyan county 
             "tip": "Choose SASRA-regulated DT-SACCOs for safety. Check audited accounts before joining."}
 
 @mcp.tool(name="chama_formation_guide", description="Guide to forming a chama/investment group in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
-def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = "savings") -> dict:
+def chama_formation_guide(members: int | None = 10, purpose: str | None = "savings") -> dict:
     """Return step-by-step guide to forming a chama (investment group) in Kenya."""
     return {"source": "DEMO — Ministry of Cooperatives for official guidance", "members": members, "purpose": purpose,
             "steps": ["1. Recruit members (3–50 typical). Define shared goal.",
@@ -41,7 +44,7 @@ def chama_formation_guide(members: Optional[int] = 10, purpose: Optional[str] = 
             "merry_go_round": f"For {members} members at KES 1,000/meeting: each receives KES {members*1000:,} per cycle"}
 
 @mcp.tool(name="cooperative_benefits", description="Benefits and obligations of Kenya cooperative membership. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
-def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
+def cooperative_benefits(coop_type: str | None = "sacco") -> dict:
     """Return benefits, structures, and types of cooperatives available in Kenya."""
     BENEFITS = {
         "sacco": ["Higher savings rates (8–14%) vs bank (2–4%)", "Loans at 1–1.5% monthly vs banks 15–20% p.a.",
@@ -61,7 +64,7 @@ def cooperative_benefits(coop_type: Optional[str] = "sacco") -> dict:
             "sasra": "DT-SACCOs regulated by SASRA — sasra.or.ke"}
 
 @mcp.tool(name="sacco_loan_guide", description="SACCO loan types, eligibility, and process in Kenya. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
-def sacco_loan_guide(loan_type: Optional[str] = "development", sacco_name: Optional[str] = Field(None, description="Optional filter for sacco name. Pass None to return all results.")) -> dict:
+def sacco_loan_guide(loan_type: str | None = "development", sacco_name: str | None = Field(None, description="Optional filter for sacco name. Pass None to return all results.")) -> dict:
     """Return indicative terms for a Kenyan SACCO loan product.
 
     SACCO lending is priced off a member's shares and deposits rather than a

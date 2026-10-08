@@ -6,12 +6,12 @@
     "url": "https://github.com/gabrielmahia/jumuia-mcp",
     "source": "github"
   },
-  "version": "0.1.5",
+  "version": "0.1.7",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "jumuia-mcp",
-      "version": "0.1.5",
+      "version": "0.1.7",
       "transport": {
         "type": "stdio"
       }
