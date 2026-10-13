@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "sacco_finder",
-      "description": "Find accredited SACCOs in Kenya by county or sector. DEMO.",
+      "description": "List sample SACCOs (savings and credit cooperatives) in Kenya by sector, with type, sector, a regulation flag and, for some, assets under management. Use when someone asks which SACCOs exist for their sector. Only sector filters the list (matching text, for example teachers or energy); county is only echoed back. Returns the source label, the echoed county and sector, the matching sample_saccos (empty if none match), a pointer to the full SASRA registry and a safety tip. A short hand-written sample labelled DEMO, not the SASRA register: figures are unverified, so check sasra.or.ke before joining. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "chama_formation_guide",
-      "description": "Guide to forming a chama/investment group in Kenya. DEMO.",
+      "description": "Step-by-step guide to forming a chama (investment group) in Kenya: recruiting members, a constitution, a joint account, registration and the first meeting, with the legal structures to choose between. Use when a group asks how to set up and register a chama. members and purpose are only echoed back; the steps are the same for every group. Returns the source label, the echoed inputs, numbered steps and legal_structures with their trade-offs. Indicative fees labelled DEMO: confirm with the Registrar of Societies or the Ministry of Cooperatives. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "cooperative_benefits",
-      "description": "Benefits and obligations of Kenya cooperative membership. DEMO.",
+      "description": "Benefits and member obligations of a cooperative type in Kenya: sacco, chama or farmers_coop. Use when someone is deciding whether to join. An unrecognised coop_type returns the SACCO entry and coop_type_applied says so. Returns the source label, coop_type, coop_type_applied, benefits, obligations and the SASRA pointer. Rates quoted are indicative and labelled DEMO: compare actual SACCO and bank terms. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "sacco_loan_guide",
-      "description": "SACCO loan types, eligibility, and process in Kenya. DEMO.",
+      "description": "Indicative SACCO loan terms by product: development, emergency, school_fees or super_loan, with the borrowing multiple on shares or deposits, the monthly rate, maximum term and what is required. Use when a member asks how much they could borrow or what a loan type costs. An unrecognised loan_type returns the development terms and loan_type_applied says so. Returns the source label, loan_type, loan_type_applied, the sacco filter (echoed) and the terms. Indicative figures labelled DEMO: rates vary by SACCO, so ask the SACCO for its schedule. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -47,7 +47,7 @@
     },
     {
       "name": "cooperative_rights_query",
-      "description": "Rights and protections for Kenya cooperative members. DEMO.",
+      "description": "Rights of a cooperative or SACCO member on a topic such as audit, voting, exit or disputes, including the escalation path to the Cooperative Tribunal and which deposits SASRA protects. Use when a member asks what they can demand or where to complain. Keywords in topic select entries; if none match, ALL rights are returned. Returns the source label, topic, rights, the SASRA pointer and the tribunal. Static summary labelled DEMO and not legal advice: verify with the Commissioner for Cooperatives or an advocate. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
