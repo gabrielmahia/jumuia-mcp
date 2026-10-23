@@ -1,12 +1,20 @@
 """JumuiaMCP — Kenya Community Finance Tools (5 tools). All data DEMO."""
 from __future__ import annotations
 
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _pkg_version
 from typing import Annotated, Optional
 
 from fastmcp import FastMCP
 from pydantic import Field
 
-mcp = FastMCP(name="jumuia-mcp", instructions="Kenya SACCO, chama, and cooperative finance tools. DEMO data only.")
+try:
+    _VERSION = _pkg_version("jumuia-mcp")
+except PackageNotFoundError:  # a source tree that was never installed
+    _VERSION = "0+unknown"
+
+
+mcp = FastMCP(name="jumuia-mcp", instructions="Kenya SACCO, chama, and cooperative finance tools. DEMO data only.", version=_VERSION)
 
 SACCO_TYPES = {
     "deposit_taking": "DT-SACCO: Regulated by SASRA. Offers savings + loans + mobile banking. Minimum capital KES 25M.",
