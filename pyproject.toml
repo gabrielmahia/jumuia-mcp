@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jumuia-mcp"
-version = "0.1.12"
+version = "0.1.13"
 description = "MCP server for Kenya community finance — SACCO finder, chama formation, cooperative benefits, loan guides, and member rights. 5 tools."
 readme = "README.md"
 license = "MIT"
@@ -23,6 +23,7 @@ classifiers = [
 jumuia-mcp = "jumuia_mcp.server:mcp.run"
 
 [project.urls]
+Issues = "https://github.com/gabrielmahia/jumuia-mcp/issues"
 Homepage = "https://github.com/gabrielmahia/jumuia-mcp"
 Documentation = "https://github.com/gabrielmahia/nairobi-stack"
 "MCP Registry" = "https://registry.modelcontextprotocol.io"
